@@ -1,5 +1,5 @@
 ﻿
-@model List<Cars>
+@model MyViewModel
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -33,15 +33,14 @@
                 @{
                     <ul class="dropdown-menu">
                         @{
-                            int sayac = 0;
                             for(int i = 0; i < 3; i++){
-                                sayac++;
-                                <li> <a class="dropdown-item" href="#"> @Model[i].Model &raquo; </a>
+                                @* var sayac = Model.company[i].Totals; *@
+                                <li> <a class="dropdown-item" href="#"> @Model.cars[i].Model &raquo; </a>
                                     <ul class="submenu dropdown-menu">
                                         @{
-                                            for(int j = 0; j < Model.Count; j++){
-                                                if(Model[j].CID > 0 && sayac == Model[j].CID){
-                                                    <li><a class="dropdown-item" href="#">@Model[j].Model</a></li>
+                                            for(int j = 0; j < Model.cars.Count; j++){
+                                                if(Model.cars[j].CID > 0 && Model.company[i].Totals == Model.cars[j].CID){
+                                                    <li><a class="dropdown-item" href="#">@Model.cars[j].Model</a></li>
                                                 }
                                             }
                                         }
