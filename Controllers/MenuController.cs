@@ -1,24 +1,12 @@
-using System.Data.SqlClient;
-using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using SQL_MVC_CarDealership.Models;
+using System.Data.SqlClient;
 
-namespace SQL_MVC_CarDealership.Controllers;
-
-public class HomeController : Controller
-{
-    public IActionResult Index()
-    {
+public class MenuController : Controller{
+    public ActionResult Index(){
         SqlMethod();
 
         return View("Index", carsList);
-    }
-
-    public IActionResult Privacy()
-    {
-        SqlMethod();
-
-        return View("Privacy", carsList);
     }
 
     public List<Cars> carsList = new List<Cars>();
