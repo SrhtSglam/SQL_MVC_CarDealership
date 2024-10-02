@@ -1,4 +1,5 @@
-﻿@model List<Cars>
+﻿
+@model List<Cars>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,12 +11,10 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script src="~/js/mySite.js"></script>
-
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/SQL_MVC_CarDealership.styles.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/mySite.css" asp-append-version="true" />
-
 </head>
 <body>
          <header>
@@ -31,83 +30,25 @@
                 <li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="Privacy"> Privacy </a></li>
                 <li class="nav-item dropdown" id="myDropdown">
                 <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">  Car Menu  </a>
-                
-                 @{
-                   
-                   for(int k=0; k <=11; k++)
-                   {
-                        var itemCar = Model[k];
-                        if(itemCar.CID == 0){
-                            
-                        }
-                        else if(itemCar.CID > 0){
-
-                        }
-                        else {
-                            
-                        }
-
-                        @* for(int i=0; i <=3; i++)
-                        {
-                                
-                                for(int j=0; j <=4; j++)
-                                {
-
-
-                                }
-
-                        } *@
-                    }
-
-                    foreach(var item in Model){
-                        if(item.CID == 0){
-                            
-                        }
-                        else if(item.CID == 1){
-
-                        }
-                        else if(item.CID == 2){
-                            
-                        }
-                     }
-                 }
-                
                 @{
                     <ul class="dropdown-menu">
-                        <li> <a class="dropdown-item" href="#"> Honda &raquo; </a>
-                        
-                        <ul class="submenu dropdown-menu">
-                            @{
-                                foreach(var item in Model){
-                                    if(item.CID == 1){
-                                        <li><a class="dropdown-item" href="#">@item.Model</a></li>
-                                    }
-                                }
+                        @{
+                            int sayac = 0;
+                            for(int i = 0; i < 3; i++){
+                                sayac++;
+                                <li> <a class="dropdown-item" href="#"> @Model[i].Model &raquo; </a>
+                                    <ul class="submenu dropdown-menu">
+                                        @{
+                                            for(int j = 0; j < Model.Count; j++){
+                                                if(Model[j].CID > 0 && sayac == Model[j].CID){
+                                                    <li><a class="dropdown-item" href="#">@Model[j].Model</a></li>
+                                                }
+                                            }
+                                        }
+                                    </ul>
+                                </li>
                             }
-                        </ul>
-                        </li>
-                        <li> <a class="dropdown-item" href="#"> Audi &raquo; </a>
-                        <ul class="submenu dropdown-menu">
-                            @{
-                                foreach(var item in Model){
-                                    if(item.CID == 2){
-                                        <li><a class="dropdown-item" href="#">@item.Model</a></li>
-                                    }
-                                }
-                            }
-                        </ul>
-                        </li>
-                        <li> <a class="dropdown-item" href="#"> BMW &raquo; </a>
-                        <ul class="submenu dropdown-menu">
-                            @{
-                                foreach(var item in Model){
-                                    if(item.CID == 3){
-                                        <li><a class="dropdown-item" href="#">@item.Model</a></li>
-                                    }
-                                }
-                            }
-                        </ul>
-                        </li>
+                        }
                     </ul>
                 }
                 </li>
@@ -118,16 +59,13 @@
             <!-- container-fluid.// -->
             </nav>
             </header>
-
             
-
 
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
-
     <script>
         $(document).ready(function(){
             $('#sub22').on("click", function(e){
@@ -137,7 +75,6 @@
             });
         });
     </script>
-
     <footer class="border-top footer text-muted">
         <div class="container">
             &copy; 2024 - SQL_MVC_CarDealership - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>

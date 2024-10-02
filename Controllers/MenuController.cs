@@ -8,7 +8,6 @@ public class MenuController : Controller{
 
         return View("Index", carsList);
     }
-
     public List<Cars> carsList = new List<Cars>();
 
     string ConnectionString = @"Data Source=localhost\SQLEXPRESS;Initial Catalog=Northwind;User Id=sqlsa;Password=Abc123+";
@@ -26,6 +25,8 @@ public class MenuController : Controller{
                 Model = dr["TITLE"].ToString()
             });
         }
+        dr.Close();
         connect.Close();
+        
     }
 }

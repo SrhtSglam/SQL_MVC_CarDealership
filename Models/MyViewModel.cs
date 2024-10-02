@@ -1,5 +1,6 @@
-// namespace SQL_MVC_CarDealership.Models;
+namespace SQL_MVC_CarDealership.Models;
 
-// public class MyViewModel{
-//     public List<Cars> carsList {get; set;} = new List<Cars>();
-// }
+public class MyViewModel{
+    public Cars cars;
+    public Company company;
+}
