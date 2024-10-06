@@ -31,19 +31,27 @@ public class HomeController : Controller{
         if(model.company == null){
             model.company = new List<Company>();
         }
+        if(model.price == null){
+            model.price = new List<Price>();
+        }
         SqlConnection connect = new SqlConnection(ConnectionString);
         connect.Open();
-        string query = "SELECT * FROM TestTable1 tb";
+        string query = "SELECT * FROM TestTable1 tb ";
         SqlCommand cmd = new SqlCommand(query, connect);
+        cmd.CommandText = query + "LEFT JOIN CarTableDetails ct ON tb.ID = ct.ID";
         SqlDataReader dr = cmd.ExecuteReader();
         while(dr.Read()){
             model.cars.Add(new Cars(){
                 Id = Convert.ToInt32(dr["ID"]),
                 CID = Convert.ToInt32(dr["CATEGORYID"]),
-                Model = dr["TITLE"].ToString()
+                Model = dr["TITLE"].ToString(),
+                Link = dr["ImageLink"].ToString()
             });
             model.company.Add(new Company(){
                 Totals = count += 1
+            });
+            model.price.Add(new Price(){
+                carPrice = Convert.ToInt32(dr["PRICE"])
             });
 
             // model.Totals1 += 1;

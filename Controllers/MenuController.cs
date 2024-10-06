@@ -31,6 +31,9 @@ public class MenuController : Controller{
         if(model.company == null){
             model.company = new List<Company>();
         }
+        if(model.price == null){
+            model.price = new List<Price>();
+        }
         SqlConnection connect = new SqlConnection(ConnectionString);
         connect.Open();
         string query = "SELECT * FROM TestTable1 tb";
@@ -44,6 +47,9 @@ public class MenuController : Controller{
             });
             model.company.Add(new Company(){
                 Totals = count += 1
+            });
+            model.price.Add(new Price(){
+                carPrice = Convert.ToInt32(dr["PRICE"])
             });
         }
         dr.Close();

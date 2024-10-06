@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SQL_MVC_CarDealership")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d77b95f917d76f7dce33f56fc3e30d85c99447f9")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bbb756da061d6cd4b61f0af2892b3228a5e27765")]
 [assembly: System.Reflection.AssemblyProductAttribute("SQL_MVC_CarDealership")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SQL_MVC_CarDealership")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

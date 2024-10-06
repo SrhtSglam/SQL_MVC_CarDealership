@@ -2,6 +2,7 @@ namespace SQL_MVC_CarDealership.Models;
 
 public class MyViewModel{
     public List<Cars> cars;
+    public List<Price> price;
     public List<Company> company;
 
     // private int totals1 = 0;
